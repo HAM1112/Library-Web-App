@@ -1,0 +1,14 @@
+body{
+    background-color: #000000;
+    color: #ffffff;
+}
+#title{
+    padding: 10px;
+    display: grid;
+    gap: 5px;
+}
+.test{
+    background-color: red;
+    padding: 20px;
+
+}
