@@ -4,18 +4,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Library</title>
 
     <link rel="stylesheet" href="./style.css">
     <script src="./script.js" defer></script>
 </head>
 <body>
-    <button id="btn">click me</button>
-    <div id="title"></div>
-    <div id="author"></div>
-    <div id="pages"></div>
-    <div id="read"></div>
-    
-
+    <div class="header">
+        <h1>Library Web Application</h1>
+        <div class="form-fill">
+            <h2>Book Details</h2>
+            <form action="">
+                <div>
+                    <label for="title">Title</label>
+                    <input type="text" name="titlee" id="title" placeholder="Book Name" required>
+                </div>
+                <div>
+                    <label for="author">Author</label>
+                    <input type="text" name="authorr" id="author" placeholder="Author Name" required>
+                </div>
+                <div>
+                    <label for="pages">Page Count</label>
+                    <input type="number" id="pages" min="2" max="1000">
+                </div>
+                <div>
+                    <input type="radio" id="read">
+                    Read
+                </div>
+            </form>
+            <button type="submit" id="submitbtn">Add Book</button>
+        </div>
+    </div>
+    <div id="main"></div>
 </body>
 </html>
