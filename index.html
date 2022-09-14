@@ -14,7 +14,7 @@
         <h1>Library Web Application</h1>
         <div class="form-fill">
             <h2>Book Details</h2>
-            <form action="">
+            <form id="book-form">
                 <div>
                     <label for="title">Title</label>
                     <input type="text" name="titlee" id="title" placeholder="Book Name" required>
@@ -32,9 +32,12 @@
                     Read
                 </div>
             </form>
-            <button type="submit" id="submitbtn">Add Book</button>
+            <button type="submit" form="book-form" id="submitbtn">Add Book</button>
         </div>
     </div>
     <div id="main"></div>
 </body>
 </html>
+
+
+

@@ -2,8 +2,6 @@
 
 let myLibrary = [];
 
-const btn = document.getElementById('btn');
-btn.addEventListener('click',addBookTOLibrary)
 
 function Book(title,author,pages,read) {
     this.title = title;
@@ -17,6 +15,9 @@ myLibrary.push(harryPotter);
 const hobbit = new Book('Hobbit','J. R. R. Tolkien', 304, false);
 myLibrary.push(hobbit);
 
+let SubmitBtn = document.getElementById('submitbtn');
+SubmitBtn.addEventListener('click',addBookTOLibrary)
+
 function addBookTOLibrary(){
     const title = prompt('title : ',);
     const author = prompt('author : ',);
@@ -26,32 +27,31 @@ function addBookTOLibrary(){
     let book = new Book(title, author, pages, read);
     myLibrary.push(book);
 
-
-    for(item = 2; item < myLibrary.length; item++ ) {
-        let createDiv = document.createElement('div');
-        createDiv.classList.add('test');
-        createDiv.innerHTML = `<h2>${myLibrary[item].title}</h2>
-                            <span>${myLibrary[item].author}</span><br>
-                            <span>${myLibrary[item].pages}</span><br>
-                            <span>${myLibrary[item].read}</span>` ;
-        div_title.appendChild(createDiv)
-        console.log(item)
-    };
+    displayBooks();
 }
 
-const div_title = document.getElementById('title');
-const div_author = document.getElementById('author');
-const div_pages = document.getElementById('pages');
-const div_read = document.getElementById('read');
 
-
+const main = document.getElementById('main');
 myLibrary.forEach(item => {
-    let createDiv = document.createElement('div');
-    createDiv.classList.add('test');
-    createDiv.innerHTML = `<h2>${item.title}</h2>
-                        <span>${item.author}</span><br>
-                        <span>${item.pages}</span><br>
-                        <span>${item.read}</span>` ;
-    div_title.appendChild(createDiv)
+    let card = document.createElement('div');
+    card.classList.add('card');
+
+    card.innerHTML = `<div><h3>${item.title}</h3><p>${item.author}</p><p>${item.pages}</p><div></div>${item.read}</div>` ;
+    main.appendChild(card)
     console.log(item)
 });
+
+
+function displayBooks(){
+    
+    for(item = 2; item < myLibrary.length; item++ ) {
+        
+        let card = document.createElement('div');
+        card.classList.add('card');
+        
+        card.innerHTML = `<div><h3>${myLibrary[item].title}</h3><p>${myLibrary[item].author}</p><p>${myLibrary[item].pages}</p><div></div>${myLibrary[item].read}</div>`
+
+        main.appendChild(card)
+        
+    };
+}
