@@ -1,57 +1,98 @@
 
 
 let myLibrary = [];
+let main = document.getElementById('main');
+let readCheck = document.getElementsByClassName('btnRead')
+readCheck.classList.add('')
 
 
 function Book(title,author,pages,read) {
     this.title = title;
     this.author = author;
     this.pages = pages;
-    this.read = read; // read is of boolean type
+    if(read == true){
+      this.read = "Read"  
+    }
+    else{
+        this.read = "Not read"
+    } // read is of boolean type
 }
 
 const harryPotter = new Book('Harry Potter', 'J.K.Rowling', 4100, true);
-myLibrary.push(harryPotter);
-const hobbit = new Book('Hobbit','J. R. R. Tolkien', 304, false);
-myLibrary.push(hobbit);
+//myLibrary.push(harryPotter);
+const hobbit = new Book('Hobbit','J.R.R. Tolkien', 304, false);
+//myLibrary.push(hobbit);
 
 let SubmitBtn = document.getElementById('submitbtn');
 SubmitBtn.addEventListener('click',addBookTOLibrary)
 
 function addBookTOLibrary(){
-    const title = prompt('title : ',);
-    const author = prompt('author : ',);
-    const pages = prompt('pages : ',);
-    const read = prompt('read : ',);
+    const title = toCapitalize(document.getElementById('title').value);
+    const author = toCapitalize(document.getElementById('author').value);
+    const pages = document.getElementById('pages').value;
+    let read = document.getElementById('read').checked;
+
+    if(title === "" || author == "" || pages ==""){
+        return console.log("error")
+    }
+    else{
+        if(read == true){
+            console.log('trueeeee')
+        }
+
+        let book = new Book(title, author, pages, read);
+        myLibrary.push(book);
+        displayBooks();
+        
+    }
+
     
-    let book = new Book(title, author, pages, read);
-    myLibrary.push(book);
-
-    displayBooks();
 }
-
-
-const main = document.getElementById('main');
-myLibrary.forEach(item => {
-    let card = document.createElement('div');
-    card.classList.add('card');
-
-    card.innerHTML = `<div><h3>${item.title}</h3><p>${item.author}</p><p>${item.pages}</p><div></div>${item.read}</div>` ;
-    main.appendChild(card)
-    console.log(item)
-});
-
+//displayBooks()
 
 function displayBooks(){
     
-    for(item = 2; item < myLibrary.length; item++ ) {
-        
-        let card = document.createElement('div');
-        card.classList.add('card');
-        
-        card.innerHTML = `<div><h3>${myLibrary[item].title}</h3><p>${myLibrary[item].author}</p><p>${myLibrary[item].pages}</p><div></div>${myLibrary[item].read}</div>`
+    let card = document.createElement('div');
+    card.classList.add('card')
+    
+    myLibrary.forEach(element => {
 
-        main.appendChild(card)
-        
-    };
+        card.innerHTML = `
+            <div>
+                <h2>${element.title}</h2>
+                <p>Author : ${element.author}</p>
+                <p>No.pages : ${element.pages}</p>
+                <button class="btnRead">${element.read}</button>
+                <button id="BtnRemoveBook"> Remove </button> 
+            </div>
+            `
+        main.appendChild(card);
+
+        console.log(element)
+    });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// testing
+
+
+function toCapitalize(str) {
+    let capita = str[0].toUpperCase();
+    for (let index = 1; index < str.length; index++) {
+        if(str[index] != " " && str[index - 1] == " "){capita += str[index].toUpperCase();}
+        else{capita += str[index]}}
+    return capita;
 }
