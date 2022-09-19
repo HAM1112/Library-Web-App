@@ -2,8 +2,9 @@
 
 let myLibrary = [];
 let main = document.getElementById('main');
-let readCheck = document.getElementsByClassName('btnRead')
-readCheck.classList.add('')
+
+
+
 
 
 function Book(title,author,pages,read) {
@@ -23,6 +24,8 @@ const harryPotter = new Book('Harry Potter', 'J.K.Rowling', 4100, true);
 const hobbit = new Book('Hobbit','J.R.R. Tolkien', 304, false);
 //myLibrary.push(hobbit);
 
+
+
 let SubmitBtn = document.getElementById('submitbtn');
 SubmitBtn.addEventListener('click',addBookTOLibrary)
 
@@ -31,45 +34,69 @@ function addBookTOLibrary(){
     const author = toCapitalize(document.getElementById('author').value);
     const pages = document.getElementById('pages').value;
     let read = document.getElementById('read').checked;
-
-    if(title === "" || author == "" || pages ==""){
-        return console.log("error")
-    }
-    else{
-        if(read == true){
-            console.log('trueeeee')
-        }
-
-        let book = new Book(title, author, pages, read);
-        myLibrary.push(book);
-        displayBooks();
-        
-    }
-
-    
-}
-//displayBooks()
-
-function displayBooks(){
     
     let card = document.createElement('div');
     card.classList.add('card')
     
-    myLibrary.forEach(element => {
+    if(title === "" || author == "" || pages ==""){
+        return console.log("error")
+    }
+    else{
 
-        card.innerHTML = `
-            <div>
-                <h2>${element.title}</h2>
-                <p>Author : ${element.author}</p>
-                <p>No.pages : ${element.pages}</p>
-                <button class="btnRead">${element.read}</button>
-                <button id="BtnRemoveBook"> Remove </button> 
-            </div>
-            `
-        main.appendChild(card);
+        let book = new Book(title, author, pages, read);
+        myLibrary.push(book);
+        
+    }
 
-        console.log(element)
-    });
+    
+    let card_title = document.createElement('h2')
+    card_title.innerHTML = `${title}`
+    card.appendChild(card_title);
+    
+    let card_author = document.createElement('p')
+    card_author.innerHTML = `Author : ${author}`
+    card.appendChild(card_author)
+    
+    let card_pages = document.createElement('p')
+    card_pages.innerHTML = `No.Pages : ${pages}`
+    card.appendChild(card_pages)
+    
+    let card_read = document.createElement('button');
+    card_read.setAttribute('id','ReadBtn');
+    if(read == false){
+        card_read.innerHTML = `Not Read`
+        card_read.classList.add('readoff')
+    }
+    else{
+        card_read.innerHTML = `Read`
+        card_read.classList.add('readon')
+    }
+    card.appendChild(card_read);
+    
+    
+    
+    let card_remove = document.createElement('button');
+    card_remove.innerHTML = `Remove`;
+    card_remove.setAttribute('id','removeBtn');
+    card.appendChild(card_remove);
+    
+    // button event listener
+    
+    let ReadBtn = document.getElementById('ReadBtn');
+    if(ReadBtn){
+        ReadBtn.addEventListener('click',()=>{
+            console.log("hi");
+        })
+    }
+    
+    
+    main.appendChild(card);
+}
+//displayBooks()
+
+
+function changeRead(){
+    console.log(read.checked)
 }
 
 
