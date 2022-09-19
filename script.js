@@ -35,18 +35,26 @@ function addBookTOLibrary(){
     const pages = document.getElementById('pages').value;
     let read = document.getElementById('read').checked;
     
-    let card = document.createElement('div');
-    card.classList.add('card')
     
     if(title === "" || author == "" || pages ==""){
         return console.log("error")
     }
     else{
-
+        
         let book = new Book(title, author, pages, read);
         myLibrary.push(book);
         
     }
+    createbook(title,author,pages,read)
+    
+}
+//displayBooks()
+
+function createbook(title,author,pages,read){
+
+    console.log("inside createBokks function");
+    let card = document.createElement('div');
+    card.classList.add('card')
 
     
     let card_title = document.createElement('h2')
@@ -92,7 +100,6 @@ function addBookTOLibrary(){
     
     main.appendChild(card);
 }
-//displayBooks()
 
 
 function changeRead(){
