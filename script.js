@@ -89,10 +89,10 @@ function createbook(item){
         render()
     })
 
-    // card_read.addEventListener('click',()=>{
-    //     item.read = !item.read;
-    //     render()
-    // })
+    card_read.addEventListener('click',()=>{
+        item.read = !item.read;
+        render()
+    })
     
     //render();
     main.appendChild(card);
