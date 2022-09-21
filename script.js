@@ -1,5 +1,3 @@
-
-
 let myLibrary = [];
 
 function Book(title,author,pages,read) {
@@ -8,12 +6,10 @@ function Book(title,author,pages,read) {
     this.pages = pages;
     this.read = read  // read is of boolean type
 }
-
 //const harryPotter = new Book('Harry Potter', 'J.K.Rowling', 4100, true);
 //myLibrary.push(harryPotter);
 //const hobbit = new Book('Hobbit','J.R.R. Tolkien', 304, false);
 //myLibrary.push(hobbit);
-
 let SubmitBtn = document.getElementById('submitbtn');
 SubmitBtn.addEventListener('click',addBookTOLibrary)
 
@@ -23,13 +19,12 @@ function addBookTOLibrary(){
     const pages = document.getElementById('pages').value;
     let read = document.getElementById('read').checked;
     
-    
     if(title === "" || author == "" || pages ==""){
         return console.log("error")
     }
-    
-    let book = new Book(title, author, pages, read);
+        let book = new Book(title, author, pages, read);
     myLibrary.push(book);
+    
     
     render()
     //createbook()
@@ -38,8 +33,6 @@ function addBookTOLibrary(){
 }
 //displayBooks()
 //render()
-
-
 
 function createbook(item){
     
@@ -75,8 +68,6 @@ function createbook(item){
     }
     card.appendChild(card_read);
     
-    
-    
     card_remove.innerHTML = `Remove`;
     card_remove.setAttribute('id','removeBtn');
     card.appendChild(card_remove);
@@ -109,19 +100,7 @@ function render() {
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
 // testing
-
 
 function toCapitalize(str) {
     let capita = str[0].toUpperCase();
