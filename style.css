@@ -56,6 +56,7 @@ input:focus{
     border: 3px solid #352F44;
     outline: none;
 }
+
 button{
     border-color: #2A2438;
     background-color: #411E8F;
@@ -63,9 +64,8 @@ button{
     border-radius: 15px;
     color: #ffffff;
     width: 150px;
-    box-shadow: 5px 5px 8px #1B0633;
+    box-shadow: 3px 3px 5px #1B0633;
 }
-
 body #main{
     margin: 50px;
     display: grid;
@@ -100,10 +100,13 @@ body #main{
 }
 
 .readon{
+    box-shadow: inset 3px 3px 5px #000000;
     background-color: #2A2438;
+    border: 0px;
 }
 
 #removeBtn{
     background-color: #352F44;
 }
+
 
