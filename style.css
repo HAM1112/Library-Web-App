@@ -97,6 +97,8 @@ body #main{
 
 .readoff{
     background-color: #dc143c;
+    box-shadow: 2px 2px 5px #1B0633;
+    border: 1px;    
 }
 
 .readon{
