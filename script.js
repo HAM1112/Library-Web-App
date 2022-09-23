@@ -60,6 +60,7 @@ function createbook(item){
     if(item.read == false){
         card_read.innerHTML = `Not Read`
         card_read.classList.add('readoff')
+        card_title.style = "background-color: #dc143c; color: #2A2438"
     }
     else{
         card_read.innerHTML = `Read`
